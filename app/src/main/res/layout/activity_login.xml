@@ -4,42 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login"
     tools:context=".LoginActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/login"
+        android:scaleType="centerCrop"/>
 
     <EditText
         android:id="@+id/editTextMail"
-        android:layout_width="280sp"
+        android:layout_width="250sp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:hint="Email"
-        android:layout_marginTop="193sp"
+        android:textColor="#0B0000"
+        android:layout_marginTop="174sp"
         android:ems="10"
         android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/editTextPass"
-        android:layout_width="280sp"
+        android:layout_width="250sp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="309sp"
+        android:layout_marginTop="60sp"
+        android:layout_below="@+id/editTextMail"
+        android:textColor="#0B0000"
         android:ems="10"
         android:hint="Password"
         android:inputType="textEmailAddress" />
 
     <Button
         android:id="@+id/buttonSignIn"
-        android:layout_width="150sp"
-        android:layout_height="55sp"
+        android:layout_width="160sp"
+        android:layout_height="58sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="464sp"
+        android:layout_below="@+id/editTextPass"
+        android:layout_marginTop="92sp"
         android:background="@android:color/transparent"/>
 
     <TextView
         android:id="@+id/textViewSignUp"
-        android:layout_width="324sp"
-        android:layout_height="40sp"
+        android:layout_width="290sp"
+        android:layout_height="45sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="571sp" />
+        android:layout_below="@+id/buttonSignIn"
+        android:layout_marginTop="44sp" />
 
 </RelativeLayout>
