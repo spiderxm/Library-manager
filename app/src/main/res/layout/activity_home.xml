@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/menu"
+        android:scaleType="centerCrop"/>
+
+    <Button
+        android:id="@+id/buttonAddBook"
+        android:layout_width="260sp"
+        android:layout_height="60sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="152sp"
+        android:background="@android:color/transparent"/>
+
+    <Button
+        android:id="@+id/buttonDeleteBook"
+        android:layout_width="260sp"
+        android:layout_height="60sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/buttonAddBook"
+        android:layout_marginTop="44sp"
+        android:background="@android:color/transparent"/>
+
+    <Button
+        android:id="@+id/buttonIssuedBook"
+        android:layout_width="260sp"
+        android:layout_height="60sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/buttonDeleteBook"
+        android:layout_marginTop="46sp"
+        android:background="@android:color/transparent"/>
+
+    <Button
+        android:id="@+id/buttonHistory"
+        android:layout_width="260sp"
+        android:layout_height="60sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/buttonIssuedBook"
+        android:layout_marginTop="47sp"
+        android:background="@android:color/transparent"/>
+
+    <Button
+        android:id="@+id/buttonContributors"
+        android:layout_width="260sp"
+        android:layout_height="60sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/buttonHistory"
+        android:layout_marginTop="48sp"
+        android:background="@android:color/transparent"/>
+
+</RelativeLayout>

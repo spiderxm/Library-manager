@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddbookActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/addbook"
+        android:scaleType="centerCrop"/>
+
+    <EditText
+        android:id="@+id/editTextBookName"
+        android:layout_width="300sp"
+        android:layout_height="48sp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_marginTop="142sp"
+        android:layout_marginLeft="37sp"
+        android:hint="Book Name"/>
+
+    <EditText
+        android:id="@+id/editTextAuthorName"
+        android:layout_width="300sp"
+        android:layout_height="48sp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/editTextBookName"
+        android:layout_marginTop="36sp"
+        android:layout_marginLeft="37sp"
+        android:hint="Author Name"/>
+
+    <EditText
+        android:id="@+id/editTextBookId"
+        android:layout_width="300sp"
+        android:layout_height="48sp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/editTextAuthorName"
+        android:layout_marginTop="36sp"
+        android:layout_marginLeft="37sp"
+        android:hint="Book ID"/>
+
+    <EditText
+        android:id="@+id/editTextIssueDate"
+        android:layout_width="300sp"
+        android:layout_height="48sp"
+        android:ems="10"
+        android:inputType="date"
+        android:layout_below="@+id/editTextBookId"
+        android:layout_marginTop="40sp"
+        android:layout_marginLeft="37sp"
+        android:hint="Issue Date"/>
+
+    <EditText
+        android:id="@+id/editTextDepartment"
+        android:layout_width="300sp"
+        android:layout_height="48sp"
+        android:ems="10"
+        android:inputType="date"
+        android:layout_below="@+id/editTextIssueDate"
+        android:layout_marginTop="40sp"
+        android:layout_marginLeft="37sp"
+        android:hint="Issue Date"/>
+
+    <Button
+        android:id="@+id/buttonAddBack"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginTop="20sp"
+        android:background="@android:color/transparent"/>
+
+    <Button
+        android:id="@+id/buttonAddBook"
+        android:layout_width="300sp"
+        android:layout_height="60sp"
+        android:layout_marginLeft="32sp"
+        android:layout_marginTop="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="34sp"
+        android:background="@android:color/transparent"/>
+
+</RelativeLayout>
