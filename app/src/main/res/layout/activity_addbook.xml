@@ -43,15 +43,15 @@
         android:layout_marginLeft="37sp"
         android:hint="Book ID"/>
 
-    <EditText
-        android:id="@+id/editTextIssueDate"
+    <TextView
+        android:id="@+id/textViewIssueDate"
         android:layout_width="300sp"
-        android:layout_height="48sp"
-        android:ems="10"
-        android:inputType="date"
+        android:layout_height="40sp"
         android:layout_below="@+id/editTextBookId"
-        android:layout_marginTop="40sp"
+        android:layout_marginTop="48sp"
         android:layout_marginLeft="37sp"
+        android:paddingTop="5sp"
+        android:textSize="17sp"
         android:hint="Issue Date"/>
 
     <EditText
@@ -59,11 +59,10 @@
         android:layout_width="300sp"
         android:layout_height="48sp"
         android:ems="10"
-        android:inputType="date"
-        android:layout_below="@+id/editTextIssueDate"
+        android:layout_below="@+id/textViewIssueDate"
         android:layout_marginTop="40sp"
         android:layout_marginLeft="37sp"
-        android:hint="Issue Date"/>
+        android:hint="Library / Book Bank"/>
 
     <Button
         android:id="@+id/buttonAddBack"
