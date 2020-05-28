@@ -19,4 +19,21 @@
         android:layout_marginTop="20sp"
         android:background="@android:color/transparent" />
 
+    <Button
+        android:id="@+id/buttonLink1"
+        android:layout_width="270sp"
+        android:layout_height="80sp"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="236sp" />
+
+    <Button
+        android:id="@+id/buttonLink2"
+        android:layout_width="270sp"
+        android:layout_height="80sp"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/buttonLink1"
+        android:layout_marginTop="100sp" />
+
 </RelativeLayout>
