@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textViewH1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:layout_marginLeft="10sp"
+        android:padding="10sp"
+        android:textSize="15sp"
+        android:text="Book Name" />
+
+    <TextView
+        android:id="@+id/textViewH2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:layout_marginLeft="10sp"
+        android:padding="10sp"
+        android:textSize="15sp"
+        android:layout_below="@+id/textViewH1"
+        android:text="Author Name" />
+
+    <TextView
+        android:id="@+id/textViewH3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:layout_marginLeft="10sp"
+        android:padding="10sp"
+        android:textSize="15sp"
+        android:layout_below="@+id/textViewH2"
+        android:text="Book ID" />
+
+    <TextView
+        android:id="@+id/textViewH4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:layout_marginLeft="10sp"
+        android:textSize="15sp"
+        android:padding="10sp"
+        android:layout_below="@+id/textViewH3"
+        android:text="Issue Date" />
+
+    <TextView
+        android:id="@+id/textViewH5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginBottom="10sp"
+        android:textSize="15sp"
+        android:padding="10sp"
+        android:layout_below="@+id/textViewH4"
+        android:text="Department" />
+
+    <TextView
+        android:id="@+id/textBookName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:textSize="15sp"
+        android:layout_marginLeft="140sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="10sp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textAuthorName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:textSize="15sp"
+        android:layout_below="@+id/textBookName"
+        android:layout_marginLeft="140sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="10sp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textBookId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:textSize="15sp"
+        android:layout_below="@+id/textAuthorName"
+        android:layout_marginLeft="140sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="10sp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textIssueDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:textSize="15sp"
+        android:layout_below="@+id/textBookId"
+        android:layout_marginLeft="140sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="10sp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textDepartment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:textSize="15sp"
+        android:layout_below="@+id/textIssueDate"
+        android:layout_marginLeft="140sp"
+        android:layout_marginRight="10sp"
+        android:layout_marginTop="10sp"
+        android:text="TextView" />
+
+
+</RelativeLayout>

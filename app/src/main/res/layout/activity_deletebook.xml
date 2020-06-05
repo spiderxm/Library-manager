@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".DeletebookActivity">
 
     <ImageView
@@ -17,6 +17,13 @@
         android:layout_height="45sp"
         android:layout_marginLeft="15sp"
         android:layout_marginTop="20sp"
+        android:layout_marginBottom="20sp"
         android:background="@android:color/transparent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="569dp"
+        android:layout_below="@+id/buttonDelBack"
+        android:layout_marginTop="6dp" />
 
 </RelativeLayout>
