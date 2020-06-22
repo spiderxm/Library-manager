@@ -31,6 +31,7 @@ public class SplashActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -39,6 +40,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -47,6 +49,7 @@ public class SplashActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -55,7 +58,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private void userInfo() {
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        
+
     }
 
     @Override
