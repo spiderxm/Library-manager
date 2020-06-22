@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,25 +53,41 @@ public class MainActivity extends AppCompatActivity {
                 if(mail.isEmpty() && pwd.isEmpty())
                 {
                     Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                else if(mail.isEmpty())
+                if(mail.isEmpty())
                 {
                     emailId.setError("Please enter Email ID");
                     emailId.requestFocus();
+                    return;
                 }
-                else if(pwd.isEmpty())
+                if(pwd.isEmpty())
                 {
                     password.setError("Please enter your password");
                     password.requestFocus();
+                    return;
                 }
-                else if(!(mail.isEmpty() && pwd.isEmpty()))
+                if(!Patterns.EMAIL_ADDRESS.matcher(mail).matches())
+                {
+                    emailId.setError("Please enter a valid mail Id");
+                    emailId.requestFocus();
+                    return;
+                }
+                if(!(mail.isEmpty() && pwd.isEmpty()))
                 {
                     firebaseAuth.createUserWithEmailAndPassword(mail, pwd).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful())
                             {
-                                Toast.makeText(getApplicationContext(),"Sign Up Unsuccessful, Please try again", Toast.LENGTH_SHORT).show();
+                                if(task.getException() instanceof FirebaseAuthUserCollisionException)
+                                {
+                                    Toast.makeText(getApplicationContext(),"You're already registered!", Toast.LENGTH_SHORT).show();
+                                }
+                                else
+                                {
+                                    Toast.makeText(getApplicationContext(),task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
                             }
                             else
                             {
@@ -80,10 +98,6 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                     });
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(), "Error Occurred!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

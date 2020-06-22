@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView signUp;
     FirebaseAuth loginFirebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
+    String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,8 @@ public class LoginActivity extends AppCompatActivity {
                 if(firebaseUser != null)
                 {
                     Toast.makeText(getApplicationContext(), "You are logged in!", Toast.LENGTH_SHORT).show();
+                    uid = firebaseUser.getUid();
+                    Log.e("User id is : ", uid);
                     Intent intent = new Intent(LoginActivity.this, SplashActivity.class);
                     startActivity(intent);
                 }
@@ -88,12 +92,13 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful())
                             {
-                                Toast.makeText(getApplicationContext(), "Either the mail Id or Password is incorrect", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                             else
                             {
                                 Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(LoginActivity.this, SplashActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
                             }
                         }
