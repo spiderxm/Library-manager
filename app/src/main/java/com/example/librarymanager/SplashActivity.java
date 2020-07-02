@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -20,6 +19,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        firebaseAuth = FirebaseAuth.getInstance();
 
         logout = findViewById(R.id.buttonLogout);
         back = findViewById(R.id.buttonBack);
@@ -52,13 +53,6 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-        userInfo();
-    }
-
-    private void userInfo() {
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-
     }
 
     @Override

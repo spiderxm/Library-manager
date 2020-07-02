@@ -43,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -57,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                     Log.e("User id is : ", uid);
                     Intent intent = new Intent(LoginActivity.this, SplashActivity.class);
                     startActivity(intent);
+                    finish();
                 }
                 else
                 {
@@ -100,6 +102,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Intent intent = new Intent(LoginActivity.this, SplashActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
+                                finish();
                             }
                         }
                     });
