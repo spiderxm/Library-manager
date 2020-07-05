@@ -4,18 +4,22 @@ import java.util.Date;
 
 public class BookModel {
 
+    private String bookId;
     private String bookName;
     private String authorName;
-    private String bookId;
-    private Date issueDate;
+    private String issueDate;
     private String department;
 
-    public BookModel(String bookName, String authorName, String bookId, Date issueDate, String department) {
+    public BookModel(String bookId, String bookName, String authorName, String issueDate, String department) {
+        this.bookId = bookId;
         this.bookName = bookName;
         this.authorName = authorName;
-        this.bookId = bookId;
         this.issueDate = issueDate;
         this.department = department;
+    }
+
+    public String getBookId() {
+        return bookId;
     }
 
     public String getBookName() {
@@ -26,11 +30,7 @@ public class BookModel {
         return authorName;
     }
 
-    public String getBookId() {
-        return bookId;
-    }
-
-    public Date getIssueDate() {
+    public String getIssueDate() {
         return issueDate;
     }
 

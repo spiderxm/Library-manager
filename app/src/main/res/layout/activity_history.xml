@@ -19,4 +19,11 @@
         android:layout_marginTop="20sp"
         android:background="@android:color/transparent"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewAllBook"
+        android:layout_width="match_parent"
+        android:layout_height="569dp"
+        android:layout_below="@+id/buttonHisBack"
+        android:layout_marginTop="35sp" />
+
 </RelativeLayout>

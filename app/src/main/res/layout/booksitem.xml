@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15sp"
+    android:layout_marginLeft="15sp"
+    android:layout_marginRight="15sp">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="170sp"
+            android:src="@drawable/background"
+            android:padding="5sp"
+            android:scaleType="fitXY"
+            />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/roundframe" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textViewBID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5sp"
+        android:textColor="#0B0000"
+        android:textStyle="bold"
+        android:layout_marginTop="10sp"
+        android:layout_marginLeft="10sp"
+        android:text="Book ID" />
+
+    <TextView
+        android:id="@+id/textViewBName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewBID"
+        android:padding="5sp"
+        android:textStyle="bold"
+        android:textColor="#0B0000"
+        android:layout_marginLeft="10sp"
+        android:text="Book Name" />
+
+    <TextView
+        android:id="@+id/textViewAName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewBName"
+        android:padding="5sp"
+        android:textStyle="bold"
+        android:textColor="#0B0000"
+        android:layout_marginLeft="10sp"
+        android:text="Author Name" />
+
+    <TextView
+        android:id="@+id/textViewIDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewAName"
+        android:padding="5sp"
+        android:textStyle="bold"
+        android:textColor="#0B0000"
+        android:layout_marginLeft="10sp"
+        android:text="Issue Date"/>
+
+    <TextView
+        android:id="@+id/textDept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewIDate"
+        android:padding="5sp"
+        android:textStyle="bold"
+        android:textColor="#0B0000"
+        android:layout_marginLeft="10sp"
+        android:text="Department" />
+
+</RelativeLayout>

@@ -29,7 +29,6 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
-import java.util.Date;
 
 public class AddbookActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
@@ -152,8 +151,13 @@ public class AddbookActivity extends AppCompatActivity implements DatePickerDial
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-                            Toast.makeText(getApplicationContext(), jsonObject.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Book added successfully", Toast.LENGTH_SHORT).show();
                             Log.e("Post volley", response);
+                            bookName.setText("");
+                            bookId.setText("");
+                            authorName.setText("");
+                            issueDate.setText("");
+                            department.setText("");
                         } catch (JSONException e) {
                             Toast.makeText(getApplicationContext(), "Server Error", Toast.LENGTH_SHORT).show();
                         }

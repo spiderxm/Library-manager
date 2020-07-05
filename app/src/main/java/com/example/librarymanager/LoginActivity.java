@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     Toast.makeText(getApplicationContext(), "You are logged in!", Toast.LENGTH_SHORT).show();
                     uid = firebaseUser.getUid();
-                    Log.e("User id is : ", uid);
+                    Log.e("User id is", uid);
                     Intent intent = new Intent(LoginActivity.this, SplashActivity.class);
                     startActivity(intent);
                     finish();
