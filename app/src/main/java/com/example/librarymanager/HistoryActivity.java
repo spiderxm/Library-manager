@@ -1,5 +1,6 @@
 package com.example.librarymanager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,7 +28,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class HistoryActivity extends AppCompatActivity{
+public class HistoryActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener stateListener;
@@ -76,8 +77,7 @@ public class HistoryActivity extends AppCompatActivity{
                                 {
                                     JSONObject data = jsonArray.getJSONObject(i);
                                     Log.e("JSONObject", data.toString());
-                                    BookModel bookModel = new BookModel(data.getString("book_id"), data.getString("book_name"), data.getString("author_name"), data.getString("issue_date"), data.getString("department"));
-                                    bookModelArrayList.add(bookModel);
+                                    bookModelArrayList.add(new BookModel(data.getString("book_id"), data.getString("book_name"), data.getString("author_name"), data.getString("issue_date").substring(0, 16), data.getString("department")));
                                 }
 //                                Toast.makeText(getApplicationContext(), bookModelArrayList.toString(), Toast.LENGTH_SHORT).show();
                                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
