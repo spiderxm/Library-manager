@@ -1,5 +1,6 @@
 package com.example.librarymanager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,16 +28,16 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class DeletebookActivity extends AppCompatActivity {
+public class DeletebookActivity extends AppCompatActivity{
 
     Button back;
     FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     RecyclerView recyclerViewDelete;
     ArrayList<BookModel> arrayListBooks;
-    BookAdapter adapterDeleteBook;
-    String uid, urlAllBooks, urlDelete;
-    RequestQueue requestQueueBook, requestQueueDelete;
+    DeleteBookAdapter adapterDeleteBook;
+    String uid, urlAllBooks;
+    RequestQueue requestQueueBook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,6 @@ public class DeletebookActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         requestQueueBook = Volley.newRequestQueue(this);
-        requestQueueDelete = Volley.newRequestQueue(this);
         recyclerViewDelete = findViewById(R.id.recyclerViewDelete);
         back = findViewById(R.id.buttonDelBack);
 
@@ -80,12 +80,11 @@ public class DeletebookActivity extends AppCompatActivity {
                                 LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
                                 layoutManager.setOrientation(RecyclerView.VERTICAL);
                                 recyclerViewDelete.setLayoutManager(layoutManager);
-                                adapterDeleteBook = new BookAdapter(arrayListBooks, getApplicationContext());
+                                adapterDeleteBook = new DeleteBookAdapter(arrayListBooks, getApplicationContext(), uid);
                                 recyclerViewDelete.setAdapter(adapterDeleteBook);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-
                         }
                     },
                             new Response.ErrorListener() {

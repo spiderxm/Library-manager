@@ -9,8 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Response;
-
 import java.util.List;
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
 
@@ -30,7 +28,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         String id = bookModelList.get(position).getBookId();
         String bName = bookModelList.get(position).getBookName();
         String aName = bookModelList.get(position).getAuthorName();
