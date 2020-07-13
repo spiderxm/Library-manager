@@ -26,9 +26,7 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import javax.security.auth.login.LoginException;
 
 public class DeleteBookAdapter extends RecyclerView.Adapter<DeleteBookAdapter.ViewHolder> {
 
