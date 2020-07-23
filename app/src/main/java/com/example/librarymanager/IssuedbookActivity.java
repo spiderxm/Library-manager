@@ -45,6 +45,7 @@ public class IssuedbookActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private NotificationManagerCompat notificationManagerCompat;
+    private static int UNIQUE_NOTIFICATION_ID = 0;
     Button back;
     RequestQueue queue;
     RecyclerView issuedRecyclerView;
@@ -164,20 +165,21 @@ public class IssuedbookActivity extends AppCompatActivity {
                                             {
                                                 bookDetails += "\n\n" + "Return this book as soon as possible";
                                             }
+                                            UNIQUE_NOTIFICATION_ID++;
                                             Notification notification = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID)
                                                     .setSmallIcon(R.drawable.icon)
                                                     .setContentTitle("Return Book")
-                                                    .setContentText( details.getString("book_name"))
+                                                    .setContentText(details.getString("book_name"))
                                                     .setPriority(NotificationCompat.PRIORITY_HIGH)
                                                     .setContentIntent(contentIntent)
+                                                    .setGroup("Notifications")
                                                     .setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000})
                                                     .setLights(Color.RED, 3000, 3000)
-                                                    .setGroup("Notifications")
                                                     .setStyle(new NotificationCompat.BigTextStyle()
-                                                    .bigText(bookDetails))
+                                                            .bigText(bookDetails))
                                                     .build();
 
-                                            notificationManagerCompat.notify(1, notification);
+                                            notificationManagerCompat.notify(UNIQUE_NOTIFICATION_ID, notification);
                                         }
 
                                         if(days >= 175 && dept.equals("book bank"))
@@ -201,10 +203,11 @@ public class IssuedbookActivity extends AppCompatActivity {
                                             {
                                                 bookDetails += "\n\n" + "Return this book as soon as possible";
                                             }
+                                            UNIQUE_NOTIFICATION_ID++;
                                             Notification notification = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID)
                                                     .setSmallIcon(R.drawable.icon)
                                                     .setContentTitle("Return Book")
-                                                    .setContentText( details.getString("book_name"))
+                                                    .setContentText(details.getString("book_name"))
                                                     .setPriority(NotificationCompat.PRIORITY_HIGH)
                                                     .setContentIntent(contentIntent)
                                                     .setGroup("Notifications")
@@ -214,10 +217,9 @@ public class IssuedbookActivity extends AppCompatActivity {
                                                             .bigText(bookDetails))
                                                     .build();
 
-                                            notificationManagerCompat.notify(1, notification);
+                                            notificationManagerCompat.notify(UNIQUE_NOTIFICATION_ID, notification);
                                         }
                                     }
-//                                    Toast.makeText(getApplicationContext(), currentDate, Toast.LENGTH_SHORT).show();
                                 }
                                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
                                 linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
