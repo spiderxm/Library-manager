@@ -1,56 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <ImageView
+        android:id="@+id/imageView7"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@mipmap/signup"
-        android:scaleType="centerCrop"/>
+        android:scaleType="fitXY"
+        android:src="@mipmap/login"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/editTextMail"
         android:layout_width="250sp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="168sp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:textColor="#0B0000" />
+        android:textColor="#0B0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.279" />
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/editTextPass"
         android:layout_width="250sp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextMail"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/editTextEmail"
-        android:layout_marginTop="66sp"
-        android:textColor="#0B0000"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textEmailAddress" />
+        android:inputType="textPassword"
+        android:textColor="#0B0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.446" />
 
     <Button
-        android:id="@+id/buttonSignUp"
+        android:id="@+id/buttonSignIn"
         android:layout_width="160sp"
         android:layout_height="55sp"
-        android:layout_below="@+id/editTextPassword"
+        android:layout_below="@+id/editTextPass"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100sp"
-        android:background="@android:color/transparent"/>
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.687" />
 
     <TextView
-        android:id="@+id/textViewLogin"
-        android:layout_width="290sp"
-        android:layout_height="40sp"
-        android:layout_below="@+id/buttonSignUp"
+        android:id="@+id/textViewSignUp"
+        android:layout_width="285dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/buttonSignIn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="36sp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.83" />
 
-</RelativeLayout>
+    <ImageButton
+        android:id="@+id/buttonHideShow"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:src="@drawable/show"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintHorizontal_bias="0.822"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.449" />
 
+</androidx.constraintlayout.widget.ConstraintLayout>

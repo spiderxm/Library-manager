@@ -74,7 +74,7 @@ public class DeletebookActivity extends AppCompatActivity{
                                 for(int i = 0; i < jsonArrayBooks.length(); i++)
                                 {
                                     JSONObject data = jsonArrayBooks.getJSONObject(i);
-                                    Log.e("Delete book", data.toString());
+                                    Log.e("Delete book Activity", data.toString());
                                     arrayListBooks.add(new BookModel(data.getString("book_id"), data.getString("book_name"), data.getString("author_name"), data.getString("issue_date").substring(0, 16), data.getString("department")));
                                 }
                                 LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -84,6 +84,7 @@ public class DeletebookActivity extends AppCompatActivity{
                                 recyclerViewDelete.setAdapter(adapterDeleteBook);
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     },

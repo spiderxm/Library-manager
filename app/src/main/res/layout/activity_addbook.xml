@@ -1,85 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddbookActivity">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleType="fitXY"
         android:src="@mipmap/addbook"
-        android:scaleType="centerCrop"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextBookName"
-        android:layout_width="300sp"
-        android:layout_height="48sp"
+        android:layout_width="290dp"
+        android:layout_height="44dp"
         android:ems="10"
+        android:hint="Book Name"
         android:inputType="textPersonName"
-        android:layout_marginTop="142sp"
-        android:layout_marginLeft="37sp"
-        android:hint="Book Name"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.585"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.236" />
 
     <EditText
         android:id="@+id/editTextAuthorName"
-        android:layout_width="300sp"
-        android:layout_height="48sp"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:layout_width="284dp"
+        android:layout_height="45dp"
         android:layout_below="@+id/editTextBookName"
-        android:layout_marginTop="36sp"
-        android:layout_marginLeft="37sp"
-        android:hint="Author Name"/>
+        android:ems="10"
+        android:hint="Author Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.368" />
 
     <EditText
         android:id="@+id/editTextBookId"
-        android:layout_width="300sp"
-        android:layout_height="48sp"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:layout_width="290dp"
+        android:layout_height="41dp"
         android:layout_below="@+id/editTextAuthorName"
-        android:layout_marginTop="36sp"
-        android:layout_marginLeft="37sp"
-        android:hint="Book ID"/>
+        android:ems="10"
+        android:hint="Book ID"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.585"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.515" />
 
     <TextView
         android:id="@+id/textViewIssueDate"
-        android:layout_width="300sp"
-        android:layout_height="40sp"
+        android:layout_width="294dp"
+        android:layout_height="34dp"
         android:layout_below="@+id/editTextBookId"
-        android:layout_marginTop="48sp"
-        android:layout_marginLeft="37sp"
+        android:hint="Issue Date"
         android:paddingTop="5sp"
         android:textSize="17sp"
-        android:hint="Issue Date"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.653" />
 
     <EditText
         android:id="@+id/editTextDepartment"
-        android:layout_width="300sp"
-        android:layout_height="48sp"
-        android:ems="10"
+        android:layout_width="294dp"
+        android:layout_height="43dp"
         android:layout_below="@+id/textViewIssueDate"
-        android:layout_marginTop="40sp"
-        android:layout_marginLeft="37sp"
-        android:hint="Library / Book Bank"/>
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:ems="10"
+        android:hint="Library / Book Bank"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextBookName"
+        app:layout_constraintVertical_bias="0.734" />
 
     <Button
         android:id="@+id/buttonAddBack"
-        android:layout_width="50sp"
-        android:layout_height="50sp"
-        android:layout_marginLeft="10sp"
-        android:layout_marginTop="20sp"
-        android:background="@android:color/transparent"/>
+        android:layout_width="46dp"
+        android:layout_height="51dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.026" />
 
     <Button
         android:id="@+id/buttonAddBook"
-        android:layout_width="300sp"
-        android:layout_height="60sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="20sp"
+        android:layout_width="292dp"
+        android:layout_height="52dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="34sp"
-        android:background="@android:color/transparent"/>
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.935" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

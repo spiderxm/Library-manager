@@ -1,55 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+
+<ImageView
+    android:id="@+id/imageView8"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    android:scaleType="fitXY"
+    android:src="@mipmap/signup"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@mipmap/login"
-        android:scaleType="centerCrop"/>
+<EditText
+    android:id="@+id/editTextEmail"
+    android:layout_width="250sp"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:ems="10"
+    android:hint="Email"
+    android:inputType="textEmailAddress"
+    android:textColor="#0B0000"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.279" />
 
-    <EditText
-        android:id="@+id/editTextMail"
-        android:layout_width="250sp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:hint="Email"
-        android:textColor="#0B0000"
-        android:layout_marginTop="174sp"
-        android:ems="10"
-        android:inputType="textEmailAddress" />
+<EditText
+    android:id="@+id/editTextPassword"
+    android:layout_width="250sp"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/editTextEmail"
+    android:layout_centerHorizontal="true"
+    android:ems="10"
+    android:hint="Password"
+    android:inputType="textPassword"
+    android:textColor="#0B0000"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/imageView8"
+    app:layout_constraintVertical_bias="0.451" />
 
-    <EditText
-        android:id="@+id/editTextPass"
-        android:layout_width="250sp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60sp"
-        android:layout_below="@+id/editTextMail"
-        android:textColor="#0B0000"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textEmailAddress" />
+<Button
+    android:id="@+id/buttonSignUp"
+    android:layout_width="160sp"
+    android:layout_height="55sp"
+    android:layout_below="@+id/editTextPassword"
+    android:layout_centerHorizontal="true"
+    android:background="@android:color/transparent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/imageView8"
+    app:layout_constraintVertical_bias="0.694" />
 
-    <Button
-        android:id="@+id/buttonSignIn"
-        android:layout_width="160sp"
-        android:layout_height="58sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/editTextPass"
-        android:layout_marginTop="92sp"
-        android:background="@android:color/transparent"/>
+<TextView
+    android:id="@+id/textViewLogin"
+    android:layout_width="285dp"
+    android:layout_height="40sp"
+    android:layout_below="@+id/buttonSignUp"
+    android:layout_centerHorizontal="true"
+    app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/imageView8"
+    app:layout_constraintVertical_bias="0.821" />
 
-    <TextView
-        android:id="@+id/textViewSignUp"
-        android:layout_width="290sp"
-        android:layout_height="45sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/buttonSignIn"
-        android:layout_marginTop="44sp" />
+<ImageButton
+    android:id="@+id/buttonShowHide"
+    android:layout_width="50sp"
+    android:layout_height="50sp"
+    android:background="@android:color/transparent"
+    android:src="@drawable/show"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.822"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.454" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

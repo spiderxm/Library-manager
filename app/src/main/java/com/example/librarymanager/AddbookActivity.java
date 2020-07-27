@@ -93,7 +93,7 @@ public class AddbookActivity extends AppCompatActivity implements DatePickerDial
                 String nameAuthor = authorName.getText().toString();
                 String idBook = bookId.getText().toString();
                 String dateIssue = issueDate.getText().toString();
-                String dept = department.getText().toString();
+                String dept = department.getText().toString().toLowerCase();
 
                 if(nameBook.isEmpty() && nameAuthor.isEmpty() && idBook.isEmpty() && dateIssue.isEmpty() && dept.isEmpty())
                 {
@@ -123,7 +123,12 @@ public class AddbookActivity extends AppCompatActivity implements DatePickerDial
                     }
                     if(dept.isEmpty())
                     {
-                        department.setError("Please enter Department");
+                        department.setError("Please enter department");
+                        department.requestFocus();
+                    }
+                    if(!(dept.equals("library") || dept.equals("book bank")))
+                    {
+                        department.setError("Please enter a valid department");
                         department.requestFocus();
                     }
                 }

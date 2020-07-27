@@ -1,6 +1,7 @@
 package com.example.librarymanager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,6 +77,9 @@ public class DeleteBookAdapter extends RecyclerView.Adapter<DeleteBookAdapter.Vi
                             JSONObject jsonObject = new JSONObject(response);
                             Log.e("Delete Book", jsonObject.toString());
                             Toast.makeText(context, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(context, HomeActivity.class);
+                            context.startActivity(intent);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

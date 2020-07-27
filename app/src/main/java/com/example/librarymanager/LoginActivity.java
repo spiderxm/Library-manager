@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,29 +20,49 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText email, Password;
-    Button signIn;
-    TextView signUp;
-    FirebaseAuth loginFirebaseAuth;
-    private FirebaseAuth.AuthStateListener authStateListener;
-    String uid;
+    EditText emailId, password;
+    Button signUp;
+    TextView login;
+    FirebaseAuth firebaseAuth;
+    ImageButton showHide;
+    String s = "show";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        loginFirebaseAuth = FirebaseAuth.getInstance();
-        email = findViewById(R.id.editTextMail);
-        Password = findViewById(R.id.editTextPass);
-        signIn = findViewById(R.id.buttonSignIn);
-        signUp = findViewById(R.id.textViewSignUp);
+        firebaseAuth = FirebaseAuth.getInstance();
+        emailId = findViewById(R.id.editTextEmail);
+        password = findViewById(R.id.editTextPassword);
+        signUp = findViewById(R.id.buttonSignUp);
+        login = findViewById(R.id.textViewLogin);
+        showHide = findViewById(R.id.buttonShowHide);
 
-        signUp.setOnClickListener(new View.OnClickListener() {
+        showHide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(s == "show")
+                {
+                    password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                    s = "hide";
+                    showHide.setImageDrawable(getResources().getDrawable(R.drawable.hide));
+                }
+                else if(s == "hide")
+                {
+                    password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    s = "show";
+                    showHide.setImageDrawable(getResources().getDrawable(R.drawable.show));
+                }
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -47,60 +71,55 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        authStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-                if(firebaseUser != null)
-                {
-                    Toast.makeText(getApplicationContext(), "You are logged in!", Toast.LENGTH_SHORT).show();
-                    uid = firebaseUser.getUid();
-                    Log.e("User id is", uid);
-                    Intent intent = new Intent(LoginActivity.this, SplashActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(), "Please Login", Toast.LENGTH_SHORT).show();
-                }
-            }
-        };
-
-        signIn.setOnClickListener(new View.OnClickListener() {
+        signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String mail = email.getText().toString();
-                String pwd = Password.getText().toString();
+                String mail = emailId.getText().toString();
+                String pwd = password.getText().toString();
 
                 if(mail.isEmpty() && pwd.isEmpty())
                 {
                     Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                else if(mail.isEmpty())
+                if(mail.isEmpty())
                 {
-                    email.setError("Please enter Email ID!");
-                    email.requestFocus();
+                    emailId.setError("Please enter Email ID");
+                    emailId.requestFocus();
+                    return;
                 }
-                else if(pwd.isEmpty())
+                if(pwd.isEmpty())
                 {
-                    Password.setError("Please enter your password!");
-                    Password.requestFocus();
+                    password.setError("Please enter your password");
+                    password.requestFocus();
+                    return;
                 }
-                else if(!(mail.isEmpty() && pwd.isEmpty()))
+                if(!Patterns.EMAIL_ADDRESS.matcher(mail).matches())
                 {
-                    loginFirebaseAuth.signInWithEmailAndPassword(mail, pwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    emailId.setError("Please enter a valid mail Id");
+                    emailId.requestFocus();
+                    return;
+                }
+                if(!(mail.isEmpty() && pwd.isEmpty()))
+                {
+                    firebaseAuth.createUserWithEmailAndPassword(mail, pwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(!task.isSuccessful())
                             {
-                                Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                if(task.getException() instanceof FirebaseAuthUserCollisionException)
+                                {
+                                    Toast.makeText(getApplicationContext(),"You're already registered!", Toast.LENGTH_SHORT).show();
+                                }
+                                else
+                                {
+                                    Toast.makeText(getApplicationContext(),task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
                             }
                             else
                             {
-                                Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(LoginActivity.this, SplashActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                Toast.makeText(getApplicationContext(), "Sign Up Successful", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                 startActivity(intent);
                                 finish();
                             }
@@ -109,11 +128,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        loginFirebaseAuth.addAuthStateListener(authStateListener);
     }
 }
